@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="plg_content_wtviewpdf_j5" default="make" basedir=".">
+    <tstamp>
+        <format property="build.date" pattern="%Y-%m-%d" />
+    </tstamp>
+
+    <property name="build" value="build" />
+    <property name="prefix" value="plg_content_" />
+    <property name="extension" value="wtviewpdf" />
+    <property name="jversion" value="_j5" />
+
+    <target name="make" description="Builds the extension release package for a version.">
+        <echo msg="Making the${build}/${prefix}${extension}${jversion} package." />
+
+        <zip destfile="${prefix}${extension}${jversion}.zip">
+            <fileset dir=".">
+                <include name="language/**" />
+                <include name="layouts/**" />
+                <include name="media/**" />
+                <include name="services/**" />
+                <include name="src/**" />
+                <include name="wtviewpdf.xml" />
+                <include name="script.php" />
+            </fileset>
+        </zip>
+    </target>
+</project>

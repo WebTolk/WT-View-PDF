@@ -25,6 +25,8 @@ $app = Factory::getApplication();
 $document = $app->getDocument();
 $wa = $document->getWebAssetManager();
 
+$wa->useScript('wt-pdf-js');
+$wa->useScript('bootstrap.modal');
 $wa->useScript('plg_content_wtviewpdf.bootstrap.modal');
 ?>
 <button type="button"

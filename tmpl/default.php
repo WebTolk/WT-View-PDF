@@ -22,6 +22,7 @@ $app = Factory::getApplication();
 $document = $app->getDocument();
 $wa = $document->getWebAssetManager();
 
+$wa->useScript('wt-pdf-js');
 $wa->useScript('plg_content_wtviewpdf.default');
 ?>
 

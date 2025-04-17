@@ -9,9 +9,6 @@
       "type": "script",
       "name": "plg_content_wtviewpdf.default",
       "uri": "plg_content_wtviewpdf/default.js",
-      "dependencies": [
-        "wt-pdf-js"
-      ],
       "importmap": false,
       "version": "1.0.0"
     },
@@ -19,10 +16,6 @@
       "type": "script",
       "name": "plg_content_wtviewpdf.bootstrap.modal",
       "uri": "plg_content_wtviewpdf/bootstrap.modal.js",
-      "dependencies": [
-        "bootstrap.modal",
-        "wt-pdf-js"
-      ],
       "importmap": false,
       "version": "1.0.0"
     },
@@ -30,9 +23,6 @@
       "type": "script",
       "name": "plg_content_wtviewpdf.uikit.modal",
       "uri": "plg_content_wtviewpdf/uikit.modal.js",
-      "dependencies": [
-        "wt-pdf-js"
-      ],
       "importmap": false,
       "version": "1.0.0"
     }

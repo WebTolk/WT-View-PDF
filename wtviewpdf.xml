@@ -5,7 +5,7 @@
 	<authorEmail>info@web-tolk.ru</authorEmail>
 	<authorUrl>https://web-tolk.ru</authorUrl>
 	<creationDate>14.04.2025</creationDate>
-	<copyright>Copyright (c) 2022-2025 Sergey Tolkachyov. All rights reserved.</copyright>
+	<copyright>Copyright (c) 2025 Sergey Tolkachyov. All rights reserved.</copyright>
 	<license>GNU General Public License version 3 or later</license>
 	<version>1.0.0</version>
 	<description>PLG_CONTENT_WTVIEWPDF_XML_DESCRIPTION</description>
@@ -14,6 +14,7 @@
 	<files>
 		<folder plugin="wtviewpdf">services</folder>
 		<folder>src</folder>
+		<folder>tmpl</folder>
 	</files>
 	<languages>
 		<language tag="en-GB">language/en-GB/plg_content_wtviewpdf.ini</language>
@@ -25,13 +26,19 @@
 		<folder>js</folder>
 		<filename>joomla.asset.json</filename>
 	</media>
-	<layouts destination="plugins/content/wtviewpdf" folder="layouts">
-		<folder>style</folder>
-	</layouts>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-
+				<field
+						name="default_tmpl"
+						type="filelist"
+						label="PLG_CONTENT_WTVIEWPDF_FIELD_DEFAULT_TMPL_LABEL"
+						default="default"
+						directory="plugins\content\wtviewpdf\tmpl"
+						hide_none="true"
+						hide_default="true"
+						stripext="true"
+				/>
 			</fieldset>
 		</fields>
 	</config>

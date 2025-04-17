@@ -124,7 +124,6 @@
           <mappings>
             <mapping deploy="plugins\content\wtviewpdf" local="$PROJECT_DIR$" web="/" />
             <mapping deploy="administrator\language" local="$PROJECT_DIR$/language" web="/" />
-            <mapping deploy="layouts\plugins\content\wtviewpdf" local="$PROJECT_DIR$/layouts" web="/" />
             <mapping deploy="media\plg_content_wtviewpdf" local="$PROJECT_DIR$/media" web="/" />
           </mappings>
         </serverdata>

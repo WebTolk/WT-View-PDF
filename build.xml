@@ -15,7 +15,7 @@
         <zip destfile="${prefix}${extension}${jversion}.zip">
             <fileset dir=".">
                 <include name="language/**" />
-                <include name="layouts/**" />
+                <include name="tmpl/**" />
                 <include name="media/**" />
                 <include name="services/**" />
                 <include name="src/**" />

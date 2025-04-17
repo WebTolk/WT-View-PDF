@@ -71,7 +71,8 @@ class WtViewPdf extends CMSPlugin implements SubscriberInterface
 		$context = $event->getContext();
 		$item = $event->getItem();
 
-		if (!is_object($item) || !property_exists($item, 'text') || is_null($item->text)) {
+		if (!is_object($item) || !property_exists($item, 'text') || is_null($item->text))
+		{
 			return;
 		}
 
@@ -80,7 +81,7 @@ class WtViewPdf extends CMSPlugin implements SubscriberInterface
 		// Remove macros and don't run this plugin when the content is being indexed
 		if ($context === 'com_finder.indexer')
 		{
-			if (str_contains($item->text, 'loadposition'))
+			if (str_contains($item->text, '{PDF'))
 			{
 				$item->text = preg_replace($regex, '', $item->text);
 			}
@@ -90,12 +91,14 @@ class WtViewPdf extends CMSPlugin implements SubscriberInterface
 
 		if (str_contains($item->text, '{PDF '))
 		{
-			$styles = Folder::files(JPATH_SITE . '/layouts/plugins/content/wtviewpdf/style');
-			$styles = array_map(
+			$defaultTmpl = $this->params->get('default_tmpl', 'default');
+
+			$tmpls = Folder::files(JPATH_PLUGINS . '/' . $this->_type . '/' . $this->_name . '/tmpl');
+			$tmpls = array_map(
 				function(string $value) {
 					return File::stripExt($value);
 				},
-				$styles
+				$tmpls
 			);
 
 			preg_match_all($regex, $item->text, $matches, PREG_SET_ORDER);
@@ -104,16 +107,15 @@ class WtViewPdf extends CMSPlugin implements SubscriberInterface
 			{
 				foreach ($matches as $match)
 				{
-					$style = $match[1] ?? 'default';
+					$tmpl = $match[1] ?? $defaultTmpl;
 
-					if (!in_array($style, $styles))
+					if (!in_array($tmpl, $tmpls))
 					{
-						$style = 'default';
+						$tmpl = $defaultTmpl;
 					}
 
 					$filePath = trim($match[2]);
-
-					$html = $this->getHtml($style, $filePath);
+					$html = $this->getHtml($tmpl, $filePath);
 
 					if (($start = strpos($item->text, $match[0])) !== false)
 					{
@@ -125,22 +127,23 @@ class WtViewPdf extends CMSPlugin implements SubscriberInterface
 	}
 
 	/**
-	 * @param   string  $style     Style
+	 * @param   string  $tmpl      Tmpl
 	 * @param   string  $filePath  The file path
 	 *
 	 * @return  string
 	 *
 	 * @since   1.6
 	 */
-	protected function getHtml(string $style, string $filePath): string
+	protected function getHtml(string $tmpl, string $filePath): string
 	{
 		static $first = true;
 		$html = LayoutHelper::render(
-			'plugins.content.wtviewpdf.style.' . $style,
+			$tmpl,
 			[
 				'filePath'  => $filePath,
 				'first'     => $first,
-			]
+			],
+			JPATH_PLUGINS . '/' . $this->_type . '/' . $this->_name . '/tmpl'
 		);
 		$first = false;
 

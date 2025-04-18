@@ -7,6 +7,7 @@
  * @license       GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @since         1.0.0
  */
+
 use Joomla\CMS\Application\AdministratorApplication;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Installer\Installer;
@@ -180,7 +181,7 @@ return new class implements ServiceProviderInterface
 						<div class="row m-0">
 						<div class="col-12 col-md-8 p-0 pe-2">
 						<h2>' . $smile . ' ' . Text::_($element . '_AFTER_' . $type) . ' <br/>' . Text::_($element) . '</h2>
-						' . Text::_($element . '_XML_DESCRIPTION');
+						' . Text::_($element . '_DESC');
 
 							$html .= Text::_($element . '_WHATS_NEW');
 
@@ -217,7 +218,7 @@ return new class implements ServiceProviderInterface
 				protected function enablePlugin(InstallerAdapter $adapter): void
 				{
 					// Prepare plugin object
-					$plugin          = new stdClass;
+					$plugin          = new \stdClass();
 					$plugin->type    = 'plugin';
 					$plugin->element = $adapter->getElement();
 					$plugin->folder  = (string) $adapter->getParent()->manifest->attributes()['group'];

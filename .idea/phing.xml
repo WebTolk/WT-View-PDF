@@ -2,8 +2,8 @@
 <project version="4">
   <component name="PhingConfiguration">
     <buildFilePaths>
-      <buildFile path="file://$PROJECT_DIR$/build.xml" />
+      <buildFile path="file://$PROJECT_DIR$/.phing/project.xml" />
     </buildFilePaths>
-    <phingPath>$USER_HOME$/AppData/Roaming/Composer/vendor/bin/phing-latest.phar</phingPath>
+    <phingPath>$PROJECT_DIR$/../Phing/phing-latest.phar</phingPath>
   </component>
 </project>

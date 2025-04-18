@@ -12,7 +12,7 @@
   </component>
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="C:/OpenServer/domains/yootheme.test1.ru" />
+      <path value="$PROJECT_DIR$/../../OSPanel/domains/j5.local" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

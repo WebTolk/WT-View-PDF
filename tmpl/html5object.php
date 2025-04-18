@@ -21,26 +21,7 @@ extract($displayData);
  * @var bool   $first    Is this first iteration or not?
  */
 
-$app      = Factory::getApplication();
-$document = $app->getDocument();
-$wa       = $document->getWebAssetManager();
-
-if(!$wa->assetExists('script', 'wt-pdf-js')) {
-    // WT PDF.js web asset is not exists
-    // Avoid error 500. Return an empty string.
-    echo '';
-    return;
-}
-
-$wa->useScript('wt-pdf-js')
-        ->useScript('plg_content_wtviewpdf.default');
 ?>
 
-<div class="wtviewpdf-default"
-     data-file-url="<?php
-     echo $filePath; ?>"
->
-    <div class="pdf-container">
-
-    </div>
-</div>
+<object class="wtviewpdf-html5object" data="<?php echo $filePath;?>" type="application/pdf" width="100%" height="720">
+</object>

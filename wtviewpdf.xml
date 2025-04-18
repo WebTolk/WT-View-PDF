@@ -8,7 +8,7 @@
 	<copyright>Copyright (c) 2025 Sergey Tolkachyov. All rights reserved.</copyright>
 	<license>GNU General Public License version 3 or later</license>
 	<version>1.0.0</version>
-	<description>PLG_CONTENT_WTVIEWPDF_XML_DESCRIPTION</description>
+	<description>PLG_CONTENT_WTVIEWPDF_DESC</description>
 	<scriptfile>script.php</scriptfile>
 	<namespace path="src">Joomla\Plugin\Content\WtViewPdf</namespace>
 	<files>
@@ -29,6 +29,10 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
+				<field
+						addfieldprefix="Joomla\Plugin\Content\WtViewPdf\Fields"
+						type="plugininfo"
+						name="plugininfo"/>
 				<field
 						name="default_tmpl"
 						type="filelist"

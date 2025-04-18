@@ -3,7 +3,7 @@
  * @package       Content - WT View PDF
  * @version       1.0.0
  * @Author        Sergey Tolkachyov, https://web-tolk.ru
- * @copyright     Copyright (c) 2022-2025 Sergey Tolkachyov
+ * @copyright     Copyright (c) 2025 Sergey Tolkachyov
  * @license       GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @since         1.0.0
  */
@@ -17,17 +17,24 @@ defined('_JEXEC') or die;
 extract($displayData);
 
 /**
- * @var string   $filePath
- * @var boolean  $first
+ * @var string $filePath Path to PDF file
+ * @var bool   $first    Is this first iteration or not?
  */
 
 $app = Factory::getApplication();
 $document = $app->getDocument();
 $wa = $document->getWebAssetManager();
 
-$wa->useScript('wt-pdf-js');
-$wa->useScript('bootstrap.modal');
-$wa->useScript('plg_content_wtviewpdf.bootstrap.modal');
+if(!$wa->assetExists('script', 'wt-pdf-js')) {
+    // WT PDF.js web asset is not exists
+    // Avoid error 500. Return an empty string.
+    echo '';
+    return;
+}
+
+$wa->useScript('wt-pdf-js')
+        ->useScript('bootstrap.modal')
+        ->useScript('plg_content_wtviewpdf.bootstrap.modal');
 ?>
 <button type="button"
         class="btn btn-primary"
@@ -38,13 +45,8 @@ $wa->useScript('plg_content_wtviewpdf.bootstrap.modal');
 	<?php echo $filePath; ?>
 </button>
 
-<?php if ($first) { ?>
-<aside class="modal fade"
-       id="wtviewpdf"
-       tabindex="-1"
-       aria-labelledby="wtviewpdf_btn"
-       aria-hidden="true"
->
+<?php if ($first) : ?>
+<aside class="modal fade" id="wtviewpdf" tabindex="-1" aria-labelledby="wtviewpdf_btn" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header py-2">
@@ -56,7 +58,7 @@ $wa->useScript('plg_content_wtviewpdf.bootstrap.modal');
                         <span class="visually-hidden">Loading...</span>
                     </div>
                 </div>
-                <div class="pdf-container d-flex flex-column ">
+                <div class="pdf-container d-flex flex-column">
 
                 </div>
             </div>
@@ -75,4 +77,4 @@ $wa->useScript('plg_content_wtviewpdf.bootstrap.modal');
         </div>
     </div>
 </aside>
-<?php } ?>
+<?php endif; ?>

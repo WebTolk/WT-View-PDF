@@ -11,6 +11,7 @@ namespace Joomla\Plugin\Content\WtViewPdf\Extension;
 
 use Exception;
 use Joomla\CMS\Event\Content\ContentPrepareEvent;
+use Joomla\CMS\Factory;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\Event\SubscriberInterface;
@@ -132,20 +133,38 @@ final class WtViewPdf extends CMSPlugin implements SubscriberInterface
 	 *
 	 * @return  string
 	 *
-	 * @since   1.6
+	 * @throws Exception
+	 *
+	 * @since   1.0
 	 */
 	protected function getHtml(string $tmpl, string $filePath): string
 	{
-		static $first = true;
-		$html = LayoutHelper::render(
-			$tmpl,
-			[
-				'filePath'  => $filePath,
-				'first'     => $first,
-			],
-			JPATH_PLUGINS . '/' . $this->_type . '/' . $this->_name . '/tmpl'
-		);
-		$first = false;
+		$app = Factory::getApplication();
+
+		try
+		{
+			static $first = true;
+			$html = LayoutHelper::render(
+				$tmpl,
+				[
+					'filePath'  => $filePath,
+					'first'     => $first,
+				],
+				JPATH_PLUGINS . '/' . $this->_type . '/' . $this->_name . '/tmpl'
+			);
+			$first = false;
+		}
+		catch (Exception $e)
+		{
+			if ($app->get('debug'))
+			{
+				throw $e;
+			}
+			else
+			{
+				return '';
+			}
+		}
 
 		return $html;
 	}

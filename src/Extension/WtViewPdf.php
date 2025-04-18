@@ -3,7 +3,7 @@
  * @package       Content - WT View PDF
  * @version       1.0.0
  * @Author        Sergey Tolkachyov, https://web-tolk.ru
- * @copyright     Copyright (c) 2022-2025 Sergey Tolkachyov
+ * @copyright     Copyright (c) 2025 Sergey Tolkachyov
  * @license       GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @since         1.0.0
  */
@@ -30,7 +30,7 @@ defined('_JEXEC') or die;
  *
  * @noinspection PhpUnused
  */
-class WtViewPdf extends CMSPlugin implements SubscriberInterface
+final class WtViewPdf extends CMSPlugin implements SubscriberInterface
 {
 	/**
 	 * Load the language file on instantiation.
@@ -93,7 +93,7 @@ class WtViewPdf extends CMSPlugin implements SubscriberInterface
 		{
 			$defaultTmpl = $this->params->get('default_tmpl', 'default');
 
-			$tmpls = Folder::files(JPATH_PLUGINS . '/' . $this->_type . '/' . $this->_name . '/tmpl');
+			$tmpls = Folder::files(JPATH_PLUGINS . '/' . $this->_type . '/' . $this->_name . '/tmpl', '\.php$');
 			$tmpls = array_map(
 				function(string $value) {
 					return File::stripExt($value);
@@ -107,7 +107,7 @@ class WtViewPdf extends CMSPlugin implements SubscriberInterface
 			{
 				foreach ($matches as $match)
 				{
-					$tmpl = $match[1] ?? $defaultTmpl;
+					$tmpl = !empty($match[1]) ? $match[1] : $defaultTmpl;
 
 					if (!in_array($tmpl, $tmpls))
 					{

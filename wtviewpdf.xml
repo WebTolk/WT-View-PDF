@@ -38,6 +38,7 @@
 						hide_none="true"
 						hide_default="true"
 						stripext="true"
+						fileFilter="\.php$"
 				/>
 			</fieldset>
 		</fields>

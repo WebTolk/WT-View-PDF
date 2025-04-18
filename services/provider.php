@@ -3,7 +3,7 @@
  * @package       Content - WT View PDF
  * @version       1.0.0
  * @Author        Sergey Tolkachyov, https://web-tolk.ru
- * @copyright     Copyright (c) 2022-2025 Sergey Tolkachyov
+ * @copyright     Copyright (c) 2025 Sergey Tolkachyov
  * @license       GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @since         1.0.0
  */

@@ -1,3 +1,2 @@
-# WT-View-PDF
-Joomla content plugin for displaying PDF files
-тест
+# WT View PDF Joomla plugin
+The plugin allows you to display `pdf` files on the Joomla website as HTML5 `<object>` or with using javascript [PDF.js](https://github.com/mozilla/pdf.js) library ([Joomla web asset](https://web-tolk.ru/en/dev/joomla-plugins/wt-pdf-js)). If you want to use a `PDF.js` you should include it to your site by yourself or use web asset plugin [WT PDF.js](https://web-tolk.ru/en/dev/joomla-plugins/wt-pdf-js). Specify the path to pdf file inside short-code like `{PDF}path/to/file.pdf{/PDF}`.

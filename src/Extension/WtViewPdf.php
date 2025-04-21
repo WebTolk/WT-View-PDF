@@ -1,6 +1,6 @@
 <?php
 /**
- * @package       Content - WT View PDF
+ * @package    Content - WT View PDF
  * @version       1.0.0
  * @Author        Sergey Tolkachyov, https://web-tolk.ru
  * @copyright     Copyright (c) 2025 Sergey Tolkachyov
@@ -29,6 +29,13 @@ defined('_JEXEC') or die;
  */
 final class WtViewPdf extends CMSPlugin implements SubscriberInterface
 {
+
+    /**
+     * @var boolean
+     * @since 1.0.0
+     */
+    protected $autoloadLanguage = true;
+
     /**
      * Returns an array of events this subscriber will listen to.
      *
@@ -122,6 +129,7 @@ final class WtViewPdf extends CMSPlugin implements SubscriberInterface
                 [
                         'filePath' => $filePath,
                         'first'    => $first,
+                        'params'   => $this->params,
                 ],
                 $layoutPath
         );

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package       Content - WT View PDF
+ * @package    Content - WT View PDF
  * @version       1.0.0
  * @Author        Sergey Tolkachyov, https://web-tolk.ru
  * @copyright     Copyright (c) 2022-2025 Sergey Tolkachyov

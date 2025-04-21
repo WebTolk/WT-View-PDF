@@ -4,7 +4,7 @@
 	<author>Sergey Tolkachyov</author>
 	<authorEmail>info@web-tolk.ru</authorEmail>
 	<authorUrl>https://web-tolk.ru</authorUrl>
-	<creationDate>14.04.2025</creationDate>
+	<creationDate>21.04.2025</creationDate>
 	<copyright>Copyright (c) 2025 Sergey Tolkachyov. All rights reserved.</copyright>
 	<license>GNU General Public License version 3 or later</license>
 	<version>1.0.0</version>
@@ -43,6 +43,12 @@
 						hide_default="true"
 						stripext="true"
 				/>
+				<field type="text"
+					   name="btn_text"
+					   label="PLG_CONTENT_WTVIEWPDF_BTN_LABEL"
+					   default="PLG_CONTENT_WTVIEWPDF_BTN_TEXT"
+					   filter="raw"
+					   description="PLG_CONTENT_WTVIEWPDF_BTN_DESC"/>
 			</fieldset>
 		</fields>
 	</config>

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package       Content - WT View PDF
+ * @package    Content - WT View PDF
  * @version       1.0.0
  * @Author        Sergey Tolkachyov, https://web-tolk.ru
  * @copyright     Copyright (c) 2025 Sergey Tolkachyov
@@ -9,6 +9,7 @@
  */
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
 
 defined('_JEXEC') or die;
 
@@ -17,8 +18,9 @@ defined('_JEXEC') or die;
 extract($displayData);
 
 /**
- * @var string $filePath Path to PDF file
- * @var bool   $first    Is this first iteration or not?
+ * @var string                        $filePath Path to PDF file
+ * @var bool                          $first    Is this first iteration or not?
+ * @var Joomla\Registry\Registry|null $params   The plugin params
  */
 
 $app      = Factory::getApplication();
@@ -35,16 +37,19 @@ if (!$wa->assetExists('script', 'wt-pdf-js')) {
 
 $wa->useScript('wt-pdf-js')
         ->useScript('plg_content_wtviewpdf.uikit.modal');
+
+if(!empty($params))
+{
+    $btn_text = $params->get('btn_text', 'PLG_CONTENT_WTVIEWPDF_BTN_TEXT');
+}
 ?>
 <button
         class="uk-button uk-button-default uk-margin-small-right"
         type="button"
         uk-toggle="target: #modal-wtviewpdf"
-        data-file-url="<?php
-        echo $filePath; ?>"
+        data-file-url="<?php echo $filePath; ?>"
 >
-    <?php
-    echo $filePath; ?>
+    <?php echo Text::_($btn_text); ?>
 </button>
 
 <?php
@@ -97,5 +102,4 @@ if ($first) : ?>
             </div>
         </div>
     </div>
-<?php
-endif; ?>
+<?php endif; ?>

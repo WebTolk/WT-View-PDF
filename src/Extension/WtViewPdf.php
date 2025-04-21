@@ -12,6 +12,7 @@ namespace Joomla\Plugin\Content\WtViewPdf\Extension;
 
 use Exception;
 use Joomla\CMS\Event\Content\ContentPrepareEvent;
+use Joomla\CMS\Factory;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\Event\SubscriberInterface;

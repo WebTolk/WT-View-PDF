@@ -122,9 +122,12 @@
       <paths name="yootheme.test1.ru">
         <serverdata>
           <mappings>
-            <mapping deploy="plugins\content\wtviewpdf" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="plugins\content\wtviewpdf\src" local="$PROJECT_DIR$/src" web="/" />
             <mapping deploy="administrator\language" local="$PROJECT_DIR$/language" web="/" />
             <mapping deploy="media\plg_content_wtviewpdf" local="$PROJECT_DIR$/media" web="/" />
+            <mapping deploy="plugins\content\wtviewpdf\services" local="$PROJECT_DIR$/services" web="/" />
+            <mapping deploy="plugins\content\wtviewpdf\wtviewpdf.xml" local="$PROJECT_DIR$/wtviewpdf.xml" web="/" />
+            <mapping deploy="plugins\content\wtviewpdf\tmpl" local="$PROJECT_DIR$/tmpl" web="/" />
           </mappings>
         </serverdata>
       </paths>

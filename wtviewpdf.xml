@@ -53,4 +53,8 @@
 			</fieldset>
 		</fields>
 	</config>
+	<updateservers>
+		<server type="extension" priority="1" name="WT View PDF updates">https://web-tolk.ru/component/swjprojects/jupdate?element=plg_content_wtviewpdf</server>
+	</updateservers>
+	<changelogurl>https://web-tolk.ru/jchangelog?element=plg_content_wtviewpdf</changelogurl>
 </extension>

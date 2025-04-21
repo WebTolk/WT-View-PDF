@@ -1,12 +1,13 @@
 <?php
 /**
- * @package       Content - WT View PDF
+ * @package    Content - WT View PDF
  * @version       1.0.0
  * @Author        Sergey Tolkachyov, https://web-tolk.ru
  * @copyright     Copyright (c) 2025 Sergey Tolkachyov
  * @license       GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @since         1.0.0
  */
+
 use Joomla\CMS\Extension\PluginInterface;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Plugin\PluginHelper;
@@ -42,7 +43,6 @@ return new class implements ServiceProviderInterface {
 				$plugin->setApplication(Factory::getApplication());
 
 				$wa = $container->get(WebAssetRegistry::class);
-
 				$wa->addRegistryFile('media/plg_content_wtviewpdf/joomla.asset.json');
 
 				return $plugin;

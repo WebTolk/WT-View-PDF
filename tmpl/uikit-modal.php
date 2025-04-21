@@ -1,6 +1,6 @@
 <?php
 /**
- * @package    Content - WT View PDF
+ * @package       Content - WT View PDF
  * @version       1.0.0
  * @Author        Sergey Tolkachyov, https://web-tolk.ru
  * @copyright     Copyright (c) 2025 Sergey Tolkachyov
@@ -38,8 +38,7 @@ if (!$wa->assetExists('script', 'wt-pdf-js')) {
 $wa->useScript('wt-pdf-js')
         ->useScript('plg_content_wtviewpdf.uikit.modal');
 
-if(!empty($params))
-{
+if (!empty($params)) {
     $btn_text = $params->get('btn_text', 'PLG_CONTENT_WTVIEWPDF_BTN_TEXT');
 }
 ?>
@@ -47,7 +46,8 @@ if(!empty($params))
         class="uk-button uk-button-default uk-margin-small-right"
         type="button"
         uk-toggle="target: #modal-wtviewpdf"
-        data-file-url="<?php echo $filePath; ?>"
+        data-file-url="<?php
+        echo $filePath; ?>"
 >
     <?php echo Text::_($btn_text); ?>
 </button>
@@ -86,10 +86,7 @@ if ($first) : ?>
             <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
 
             <div class="uk-modal-body uk-padding-small">
-                <div
-                        class="uk-flex uk-width-1-1 uk-height-1-1 uk-flex-center uk-flex-middle uk-background-default"
-                        id="modal-loader"
-                >
+                <div class="uk-flex uk-width-1-1 uk-height-1-1 uk-flex-center uk-flex-middle uk-background-default" id="modal-loader">
                     <div uk-spinner="ratio: 3"></div>
                 </div>
                 <div class="pdf-container d-flex flex-column ">

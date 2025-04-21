@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "plg_content_wtviewpdf",
+  "version": "1.0.0",
+  "description": "plg_content_wtviewpdf",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "type": "script",
+      "name": "plg_content_wtviewpdf.default",
+      "uri": "plg_content_wtviewpdf/default.js",
+      "importmap": false,
+      "version": "1.0.0"
+    },
+    {
+      "type": "script",
+      "name": "plg_content_wtviewpdf.bootstrap.modal",
+      "uri": "plg_content_wtviewpdf/bootstrap.modal.js",
+      "importmap": false,
+      "version": "1.0.0"
+    },
+    {
+      "type": "script",
+      "name": "plg_content_wtviewpdf.uikit.modal",
+      "uri": "plg_content_wtviewpdf/uikit.modal.js",
+      "importmap": false,
+      "version": "1.0.0"
+    }
+  ]
+}
